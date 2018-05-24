@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		mavenLocal()
+
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.ywt'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.RC1'
+    }
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven {
+		url 'https://repo.spring.io/libs-milestone'
+	}
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+// compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.12.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-server', version: '1.4.3.RELEASE'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
