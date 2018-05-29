@@ -6,9 +6,19 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 0
+  instance:
+    health-check-url: /admin/health
+    status-page-url-path: /admin/info
+
 server:
-  port: 8761
+  port: ${PORT:8761}
+
 logging:
   level:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: 'DEBUG'
+
+management:
+  server:
+    servlet:
+      context-path: /admin

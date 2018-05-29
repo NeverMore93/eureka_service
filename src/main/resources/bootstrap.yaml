@@ -4,6 +4,4 @@ spring:
   cloud:
     config:
       uri: ${CONFIG_SERVER_URL:http://localhost:8888}
-#      enabled: false
-#      server:
-#        bootstrap:ture
+      enabled: false
