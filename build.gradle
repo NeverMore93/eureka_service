@@ -59,6 +59,7 @@ dependencies {
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-server', version: "$springCloudVersion"
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: "$springCloudVersion"
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-config-server', version: "$springCloudVersion"
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-ribbon', version: "$springCloudVersion"
 
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-bus-amqp', version: "$AMQPVersion"
 
