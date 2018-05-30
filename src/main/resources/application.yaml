@@ -7,18 +7,32 @@ eureka:
   server:
     wait-time-in-ms-when-sync-empty: 0
   instance:
-    health-check-url: /admin/health
-    status-page-url-path: /admin/info
+    lease-renewal-interval-in-seconds: 10
+    non-secure-port: 80
 
 server:
   port: ${PORT:8761}
+#  error:
+#    whitelabel:
+#      enabled: false
 
 logging:
   level:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: 'DEBUG'
+    org.springframework.boot: 'DEBUG'
 
 management:
-  server:
-    servlet:
-      context-path: /admin
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/NeverMore93/eureka-config-repo
+          basedir: target/config
+      enabled: false
