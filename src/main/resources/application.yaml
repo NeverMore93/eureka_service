@@ -11,22 +11,27 @@ eureka:
     non-secure-port: 80
 
 server:
-  port: ${PORT:8761}
-#  error:
-#    whitelabel:
-#      enabled: false
+  port: 8761
 
 logging:
   level:
-    com.netflix.discovery: 'OFF'
+    com.netflix.discovery: 'DEBUG'
     org.springframework.cloud: 'DEBUG'
     org.springframework.boot: 'DEBUG'
+    org.springframework.web: 'DEBUG'
 
 management:
   endpoints:
     web:
       exposure:
         include: ["*"]
+  info:
+    git:
+      mode: full
+  cloudfoundry:
+    skip-ssl-validation: true
+#  server:
+#    port: 9001
 
 spring:
   cloud:
@@ -36,3 +41,12 @@ spring:
           uri: https://github.com/NeverMore93/eureka-config-repo
           basedir: target/config
       enabled: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+ribbon:
+  eager-load:
+    enabled: true

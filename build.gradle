@@ -33,6 +33,7 @@ bootJar {
 dependencyManagement {
     imports {
         mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.RC1'
+		mavenBom 'org.springframework.cloud:spring-cloud-bus:2.0.0.RC1'
     }
 }
 
@@ -61,7 +62,7 @@ dependencies {
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-server', version: "$springCloudVersion"
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: "$springCloudVersion"
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-config-server', version: "$springCloudVersion"
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-ribbon', version: "$springCloudVersion"
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: "$springCloudVersion"
 
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-bus-amqp', version: "$AMQPVersion"
 
